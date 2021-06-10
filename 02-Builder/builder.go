@@ -1,10 +1,11 @@
 package main
 
+import "fmt"
+
 // 建造者: 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示
 
 type Builder interface {
 	Age() int
-	Gender() string
 }
 
 type human struct {
@@ -13,7 +14,7 @@ type human struct {
 
 func newHuman(b Builder) *human {
 	return &human{
-		builder: b
+		builder: b,
 	}
 }
 
@@ -21,19 +22,28 @@ func (f *human) SetBuilder(b Builder) {
 	f.builder = b
 }
 
-
-type manBuilder  struct {
+type manBuilder struct {
 	age int
 }
 
 func (m *manBuilder) Age() int {
-	return man.age
+	return m.age
 }
 
-type womenBuilder  struct {
+type womenBuilder struct {
 	age int
 }
 
 func (w *womenBuilder) Age() int {
-	return women.age
+	return w.age
+}
+
+func main() {
+	man := &manBuilder{age: 20}
+	women := &womenBuilder{age: 18}
+
+	human1 := newHuman(man)
+	fmt.Println(human1.builder.Age()) // 20
+	human1.SetBuilder(women)
+	fmt.Println(human1.builder.Age()) // 18
 }
