@@ -24,8 +24,8 @@
 
 ## 创建型
   - [抽象工厂模式](./01-Abstract_Factory/abstract_factory.go)
-  - [工厂模式](./02-Builder/builder.go)
-  - [建造者模式](./03-Factory_Method/factory_method.go)
+  - [建造者模式](./02-Builder/builder.go)
+  - [工厂方法模式](./03-Factory_Method/factory_method.go)
   - [原型模式](./04-Prototype/prototype.go)
   - [单例模式](./05-Singleton/singleton.go)
 ## 结构型
